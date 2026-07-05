@@ -1,0 +1,3991 @@
+[
+  {
+    "name": "Burn",
+    "kind": "action",
+    "syntax": "burn <duration> [unit]",
+    "description": "Prende fuego al jugador durante la duración especificada.",
+    "example": "actions:\n  burn: \"burn 30 unit:ticks\"\n  punishing_fire: \"burn %point.punishment.amount%\"",
+    "id": "burn",
+    "keyword": "burn",
+    "args": [
+      {
+        "raw": "duration",
+        "required": true
+      },
+      {
+        "raw": "unit",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "duration",
+        "required": true,
+        "default": null,
+        "explanation": "La duración durante la cual el jugador arderá."
+      },
+      {
+        "name": "unit",
+        "required": false,
+        "default": "seconds",
+        "explanation": "La unidad de la duración. Por defecto son segundos."
+      }
+    ]
+  },
+  {
+    "name": "Cancel",
+    "kind": "action",
+    "syntax": "cancel <canceler> [bypass]",
+    "description": "Llama al quest canceler especificado.",
+    "example": "actions:\n  cancelQuest: \"cancel woodQuest bypass\"",
+    "id": "cancel",
+    "keyword": "cancel",
+    "args": [
+      {
+        "raw": "canceler",
+        "required": true
+      },
+      {
+        "raw": "bypass",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "canceler",
+        "required": true,
+        "default": null,
+        "explanation": "El Quest Canceler a ejecutar."
+      },
+      {
+        "name": "bypass",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si se deben ignorar las condiciones del canceler. Si está activado, el canceler se ejecutará aunque sus condiciones no se cumplan."
+      }
+    ]
+  },
+  {
+    "name": "CancelConversation",
+    "kind": "action",
+    "syntax": "cancelconversation",
+    "description": "Cancela una conversación que esté activa actualmente para el jugador.",
+    "example": "actions:\n  cancel: \"cancelconversation\"",
+    "id": "cancelconversation",
+    "keyword": "cancelconversation",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Chat",
+    "kind": "action",
+    "syntax": "chat <messages>",
+    "description": "Envía el mensaje al chat como si lo escribiera el jugador.",
+    "example": "actions:\n  sendMSG: \"chat Hello!\"\n  sendMultipleMSGs: \"chat Hi %player%|ban %player%|pardon %player%\"\n  sendPluginCommand: \"chat /someCommand x y z\"",
+    "id": "chat",
+    "keyword": "chat",
+    "args": [
+      {
+        "raw": "messages",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ChestClear",
+    "kind": "action",
+    "syntax": "chestclear <location>",
+    "description": "Elimina todos los ítems del cofre en la ubicación especificada.",
+    "example": "actions:\n  chestclear: \"chestclear 100;200;300;world\"",
+    "id": "chestclear",
+    "keyword": "chestclear",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ChestGive",
+    "kind": "action",
+    "syntax": "chestgive <location> <items>",
+    "description": "Coloca ítems en el cofre en la ubicación especificada.",
+    "example": "actions:\n  chestgive: \"chestgive 100;200;300;world emerald:5,sword\"",
+    "id": "chestgive",
+    "keyword": "chestgive",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "items",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ChestTake",
+    "kind": "action",
+    "syntax": "chesttake <location> <items> [abort] [fail]",
+    "description": "Retira ítems del cofre en la ubicación especificada.",
+    "example": "actions:\n  chesttake: \"chesttake 100;200;300;world emerald:5,sword\"\n  finishRiddle: \"chesttake 300;200;100;world stone:8,artifact:2,sand:3 abort fail:thunder\"",
+    "id": "chesttake",
+    "keyword": "chesttake",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "abort",
+        "required": false
+      },
+      {
+        "raw": "fail",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Command",
+    "kind": "action",
+    "syntax": "command <commands>",
+    "description": "Ejecuta los comandos especificados desde la consola.",
+    "example": "actions:\n  killAndBan: \"command kill %player%|ban %player%\"",
+    "id": "command",
+    "keyword": "command",
+    "args": [
+      {
+        "raw": "commands",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Compass",
+    "kind": "action",
+    "syntax": "compass <operation> <target>",
+    "description": "Gestiona los destinos de brújula del jugador.",
+    "example": "compass:\n  beton:\n    name:\n      en-US: Target\n      pl-PL: Cel\n    location: 100;200;300;world\n    item: scroll",
+    "id": "compass",
+    "keyword": "compass",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "target",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Conversation",
+    "kind": "action",
+    "syntax": "conversation <conversation> <option>",
+    "description": "Inicia una conversación.",
+    "example": "actions:\n  startConversation: \"conversation village_smith\"\n  startConversationOption: \"conversation tutorial option:explain_world\"",
+    "id": "conversation",
+    "keyword": "conversation",
+    "args": [
+      {
+        "raw": "conversation",
+        "required": true
+      },
+      {
+        "raw": "option",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Damage",
+    "kind": "action",
+    "syntax": "damage <amount>",
+    "description": "Aplica la cantidad especificada de daño al jugador.",
+    "example": "actions:\n  dealDamage: \"damage 20\"",
+    "id": "damage",
+    "keyword": "damage",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "DelEffect",
+    "kind": "action",
+    "syntax": "deleffect <effects>",
+    "description": "Elimina los efectos de poción especificados del jugador.",
+    "example": "actions:\n  deleteEffects: \"deleffect ABSORPTION,BLINDNESS\"\n  deleteAny: \"deleffect any\"\n  deleteAll: \"deleffect\"",
+    "id": "deleffect",
+    "keyword": "deleffect",
+    "args": [
+      {
+        "raw": "effects",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "DeleteGlobalPoint",
+    "kind": "action",
+    "syntax": "deleteglobalpoint <category>",
+    "description": "Elimina la categoría de puntos global.",
+    "example": "actions:\n  deleteBonus: \"deleteglobalpoint bonus\"",
+    "id": "deleteglobalpoint",
+    "keyword": "deleteglobalpoint",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "DeletePoint",
+    "kind": "action",
+    "syntax": "deletepoint <category>",
+    "description": "Elimina la categoría de puntos del jugador.",
+    "example": "actions:\n  deletePoints: \"deletepoint npc_attitude\"",
+    "id": "deletepoint",
+    "keyword": "deletepoint",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Door",
+    "kind": "action",
+    "syntax": "door <location> <operation>",
+    "description": "Abre y cierra puertas, trampillas y puertas de valla.",
+    "example": "actions:\n  close: \"door 100;200;300;world off\"",
+    "id": "door",
+    "keyword": "door",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "operation",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Drop",
+    "kind": "action",
+    "syntax": "drop <items> [location]",
+    "description": "Suelta los ítems especificados en la ubicación especificada.",
+    "example": "actions:\n  dropSword: \"drop items:magical_sword location:200;17;300;world\"\n  dropRare: \"drop items:loot_rare,loot_common:3\"\n  dropMyItem: \"drop items:myItem location:%objective.MyQuestPlaceholder.DropLocation%\"",
+    "id": "drop",
+    "keyword": "drop",
+    "args": [
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Effect",
+    "kind": "action",
+    "syntax": "effect <effect> <duration> <level> [ambient] [icon] [hidden]",
+    "description": "Aplica el efecto de poción especificado al jugador.",
+    "example": "actions:\n  effectBlindness: \"effect BLINDNESS 30 1 ambient icon\"",
+    "id": "effect",
+    "keyword": "effect",
+    "args": [
+      {
+        "raw": "effect",
+        "required": true
+      },
+      {
+        "raw": "duration",
+        "required": true
+      },
+      {
+        "raw": "level",
+        "required": true
+      },
+      {
+        "raw": "ambient",
+        "required": false
+      },
+      {
+        "raw": "icon",
+        "required": false
+      },
+      {
+        "raw": "hidden",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Eval",
+    "kind": "action",
+    "syntax": "eval <expression>",
+    "description": "Evalúa la expresión y ejecuta la action resultante.",
+    "example": "actions:\n  simpleEval: 'eval notify \"This is actually an eval action evaluating to a notify action.\"'\n  complexEval: \"eval point ranking 5 action:add %objective.settings.notify%\" #(1)!",
+    "id": "eval",
+    "keyword": "eval",
+    "args": [
+      {
+        "raw": "expression",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Experience",
+    "kind": "action",
+    "syntax": "experience <amount> <action>",
+    "description": "Modifica la barra de experiencia del jugador.",
+    "example": "actions:\n  add15XP: \"experience 15 action:addExperience\"\n  add4andAHalfLevel: \"experience 4.5 action:addLevel\"\n  remove2Level: \"experience -2 action:addLevel\"\n  setXPBar: \"experience 0.5 action:setExperienceBar\"\n  resetLevel: \"experience 0.01 action:setLevel\"",
+    "id": "experience",
+    "keyword": "experience",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "action",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Explosion",
+    "kind": "action",
+    "syntax": "explosion <fire> <block> <power> <location>",
+    "description": "Crea una explosión en la ubicación especificada.",
+    "example": "actions:\n  explosion: \"explosion 0 1 4 100;64;-100;survival\"",
+    "id": "explosion",
+    "keyword": "explosion",
+    "args": [
+      {
+        "raw": "fire",
+        "required": true
+      },
+      {
+        "raw": "block",
+        "required": true
+      },
+      {
+        "raw": "power",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "First",
+    "kind": "action",
+    "syntax": "first <actions>",
+    "description": "Ejecuta la primera action posible.",
+    "example": "actions:\n  firstExample: \"first action1,action2,action3\" # (1)!\n  action1: \"point carry boxes 10 action:add conditions:firstCondition\"\n  action2: \"point carry boxes 20 action:add conditions:secondCondition\"\n  action3: \"point carry boxes 40 action:add conditions:thirdCondition\"",
+    "id": "first",
+    "keyword": "first",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Folder",
+    "kind": "action",
+    "syntax": "folder <actions> [delay] [period] [unit] [random] [cancelOnLogout] [cancelConditions]",
+    "description": "Ejecuta varias actions en secuencia.",
+    "example": "actions:\n  simpleFolder: \"folder action1,action2,action3\" # (1)!\n  runActions: \"folder action1,action2,action3 delay:5 period:1\" # (2)!\n  troll: \"folder killPlayer,banPlayer,kickPlayer delay:5 random:1\" # (3)!\n  wait: \"folder messagePlayer,giveReward delay:1 unit:minutes\" # (4)!",
+    "id": "folder",
+    "keyword": "folder",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      },
+      {
+        "raw": "delay",
+        "required": false
+      },
+      {
+        "raw": "period",
+        "required": false
+      },
+      {
+        "raw": "unit",
+        "required": false
+      },
+      {
+        "raw": "random",
+        "required": false
+      },
+      {
+        "raw": "cancelOnLogout",
+        "required": false
+      },
+      {
+        "raw": "cancelConditions",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "actions to run",
+        "required": true,
+        "default": null,
+        "explanation": "Una o varias actions a ejecutar. Contiene nombres de actions separados por comas."
+      },
+      {
+        "name": "delay",
+        "required": false,
+        "default": "without delay",
+        "explanation": "El retraso antes de que el folder empiece a ejecutar sus actions."
+      },
+      {
+        "name": "period",
+        "required": false,
+        "default": "without delay",
+        "explanation": "El tiempo entre cada action del folder."
+      },
+      {
+        "name": "time unit",
+        "required": false,
+        "default": "Seconds",
+        "explanation": "La unidad de tiempo a usar para delay y period. Puede ser `ticks`, `minutes` o `seconds`."
+      },
+      {
+        "name": "random",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Activa el \"modo aleatorio\". Elegirá al azar la cantidad definida de actions."
+      },
+      {
+        "name": "cancelOnLogout",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si está activado, el folder deja de ejecutar actions si el jugador se desconecta."
+      },
+      {
+        "name": "cancelConditions",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si está activado, el folder deja de ejecutar actions si las conditions se cumplen."
+      }
+    ]
+  },
+  {
+    "name": "Give",
+    "kind": "action",
+    "syntax": "give <items> [notify] [backpack]",
+    "description": "Le da al jugador todos los ítems especificados.",
+    "example": "actions:\n  giveEmeralds: \"give emerald:5,emerald_block:9\"\n  giveSign: \"give important_sign notify backpack\"",
+    "id": "give",
+    "keyword": "give",
+    "args": [
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "notify",
+        "required": false
+      },
+      {
+        "raw": "backpack",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "GiveJournal",
+    "kind": "action",
+    "syntax": "givejournal",
+    "description": "Le da el diario (journal) al jugador.",
+    "example": "actions:\n  giveJournal: \"givejournal\"",
+    "id": "givejournal",
+    "keyword": "givejournal",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "GlobalPoint",
+    "kind": "action",
+    "syntax": "globalpoint <category> <amount> <action>",
+    "description": "Gestiona puntos globales.",
+    "example": "actions:\n  increaseUserCount: \"globalpoint global_knownusers 1 action:add\"\n  resetDailyLogins: \"globalpoint daily_login 0 action:set\"\n  doubleReputation: \"globalpoint reputation 2 action:multiply\"",
+    "id": "globalpoint",
+    "keyword": "globalpoint",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "action",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "GlobalTag",
+    "kind": "action",
+    "syntax": "globaltag <operation> <tags>",
+    "description": "Gestiona tags globales.",
+    "example": "actions:\n  setNpcsAggressive: \"globaltag add global_areNPCsAggressive\"",
+    "id": "globaltag",
+    "keyword": "globaltag",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "tags",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Heal",
+    "kind": "action",
+    "syntax": "heal <amount> [operation]",
+    "description": "Cura al jugador la cantidad especificada.",
+    "example": "actions:\n  give5: \"heal 5\"\n  set20: \"heal 20 operation:set\"",
+    "id": "heal",
+    "keyword": "heal",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "operation",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "amount",
+        "required": true,
+        "default": null,
+        "explanation": "La cantidad de vida a curar."
+      },
+      {
+        "name": "operation",
+        "required": false,
+        "default": "add",
+        "explanation": "La operación a realizar."
+      }
+    ]
+  },
+  {
+    "name": "Hunger",
+    "kind": "action",
+    "syntax": "hunger <operation> <amount>",
+    "description": "Gestiona el nivel de hambre del jugador.",
+    "example": "actions:\n  set20: \"hunger set 20\"\n  give5: \"hunger give 5\"",
+    "id": "hunger",
+    "keyword": "hunger",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "If",
+    "kind": "action",
+    "syntax": "if <condition> <action1> else <action2>",
+    "description": "Evalúa una condition y ejecuta una de dos actions.",
+    "example": "actions:\n  toggleWeather: \"if sun rain else sun\"",
+    "id": "if",
+    "keyword": "if",
+    "args": [
+      {
+        "raw": "condition",
+        "required": true
+      },
+      {
+        "raw": "action1",
+        "required": true
+      },
+      {
+        "raw": "action2",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ItemDurability",
+    "kind": "action",
+    "syntax": "itemdurability <slot> <operation> <amount> [ignoreUnbreakable] [ignoreEvents]",
+    "description": "Gestiona la durabilidad de un ítem en el slot especificado.",
+    "example": "actions:\n  add1ToHand: \"itemdurability HAND ADD 1\"\n  damageChest: \"itemdurability CHEST SUBTRACT %randomnumber.whole.15~30% ignoreUnbreakable ignoreEvents\"",
+    "id": "itemdurability",
+    "keyword": "itemdurability",
+    "args": [
+      {
+        "raw": "slot",
+        "required": true
+      },
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "ignoreUnbreakable",
+        "required": false
+      },
+      {
+        "raw": "ignoreEvents",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Journal",
+    "kind": "action",
+    "syntax": "journal <operation> <entry>",
+    "description": "Gestiona entradas en el diario (journal) del jugador.",
+    "example": "actions:\n  questStarted: \"journal add quest_started\"\n  questAvailable: \"journal delete quest_available\"\n  update: \"journal update\"",
+    "id": "journal",
+    "keyword": "journal",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "entry",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Kill",
+    "kind": "action",
+    "syntax": "kill",
+    "description": "Mata al jugador.",
+    "example": "actions:\n  killPlayer: \"kill\"",
+    "id": "kill",
+    "keyword": "kill",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Language",
+    "kind": "action",
+    "syntax": "language <language>",
+    "description": "Establece el idioma del jugador al especificado.",
+    "example": "actions:\n  setLangEn: \"language en-US\"",
+    "id": "language",
+    "keyword": "language",
+    "args": [
+      {
+        "raw": "language",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Lever",
+    "kind": "action",
+    "syntax": "lever <location> <state>",
+    "description": "Controla la palanca en la ubicación especificada.",
+    "example": "actions:\n  toggle: \"lever 100;200;300;world toggle\"",
+    "id": "lever",
+    "keyword": "lever",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "state",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Lightning",
+    "kind": "action",
+    "syntax": "lightning <location> [noDamage]",
+    "description": "Hace caer un rayo en la ubicación especificada.",
+    "example": "actions:\n  strikeLightning: \"lightning 100;64;-100;survival\"\n  showEntrance: \"lightning 200;65;100;survival noDamage\"",
+    "id": "lightning",
+    "keyword": "lightning",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "noDamage",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Log",
+    "kind": "action",
+    "syntax": "log <message> [level]",
+    "description": "Imprime el mensaje especificado en la consola del servidor.",
+    "example": "actions:\n    logPlayer: \"log %player% completed first quest.\"\n    debug: \"log daily quests have been reset level:DEBUG \"",
+    "id": "log",
+    "keyword": "log",
+    "args": [
+      {
+        "raw": "message",
+        "required": true
+      },
+      {
+        "raw": "level",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "level",
+        "required": false,
+        "default": "`INFO`",
+        "explanation": "Opcionalmente se puede especificar el nivel de log, pero solo **antes** del mensaje. <br>Hay 4 niveles: `debug`, `info`, `warning` y `error`"
+      }
+    ]
+  },
+  {
+    "name": "Notify",
+    "kind": "action",
+    "syntax": "notify <message> [category] [io] [any io specific settings]",
+    "description": "Envía la notificación al jugador usando el notifyIO especificado.",
+    "example": "actions:\n  #The simplest of all notify actions. Just a chat message:\n  customAction: \"notify Hello %player%!\"  \n\n  #It's the same as this one since 'chat' is the default IO.\n  theSame: \"notify Hello %player%! io:chat\"\n\n  #This one displays a title and a subtitle:\n  myTitle: \"notify This is a title.\\\\nThis is a subtitle. io:title\"\n\n  #Plays a sound:\n  mySound: \"notify io:sound sound:x.y.z\"\n\n  #This one explicitly defines an io (bossbar) and adds one bossbarIO option + one soundIO option:\n  myBar: \"notify This is a custom message. io:bossbar barColor:red sound:block.anvil.use\"\n\n  #Some actions with categories.\n  myAction1: \"notify This is a custom message! category:info\"\n  myAction2: \"notify This is a custom message! category:firstChoice,secondChoice\"\n\n  #You can also override category settings:\n  myAction3: \"notify Another message! category:info io:advancement frame:challenge\"\n\n  #Use multiple languages:\n  multilanguage: \"notify {en-US} Hello english person! {de-de} Hello german person! {es-ES} Hello spanish person!\"",
+    "id": "notify",
+    "keyword": "notify",
+    "args": [
+      {
+        "raw": "message",
+        "required": true
+      },
+      {
+        "raw": "category",
+        "required": false
+      },
+      {
+        "raw": "io",
+        "required": false
+      },
+      {
+        "raw": "any io specific settings",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "explanation": "El mensaje que se mostrará. Admite traducciones. *Debe ir primero*"
+      },
+      {
+        "name": "category",
+        "required": false,
+        "default": "None",
+        "explanation": "Carga todos los ajustes de esa Categoría de Notificación. Puede ser una lista separada por comas. Se usará la primera categoría que exista."
+      },
+      {
+        "name": "io",
+        "required": false,
+        "default": "io:chat",
+        "explanation": "Cualquier NotifyIO. Sobrescribe los ajustes de la \"category\"."
+      },
+      {
+        "name": "any io specific settings",
+        "required": false,
+        "default": "None",
+        "explanation": "Algunos notifyIO ofrecen ajustes específicos. Se puede usar varias veces. Sobrescribe los ajustes de \"category\"."
+      }
+    ]
+  },
+  {
+    "name": "NotifyAll",
+    "kind": "action",
+    "syntax": "notifyall <message> [category] [io] [any io specific settings]",
+    "description": "Envía la notificación a todos los jugadores usando el notifyIO especificado.",
+    "example": "actions:\n  announceDungeon: \"notifyall A new dungeon has opened!\"",
+    "id": "notifyall",
+    "keyword": "notifyall",
+    "args": [
+      {
+        "raw": "message",
+        "required": true
+      },
+      {
+        "raw": "category",
+        "required": false
+      },
+      {
+        "raw": "io",
+        "required": false
+      },
+      {
+        "raw": "any io specific settings",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "NpcTeleport",
+    "kind": "action",
+    "syntax": "npcteleport <Npc> <Location> [spawn]",
+    "description": "Teletransporta al NPC a la ubicación especificada.",
+    "example": "actions:\n  teleportToSpawn: \"npcteleport mayorHans 100;200;300;world\"",
+    "id": "npcteleport",
+    "keyword": "npcteleport",
+    "args": [
+      {
+        "raw": "Npc",
+        "required": true
+      },
+      {
+        "raw": "Location",
+        "required": true
+      },
+      {
+        "raw": "spawn",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Npc",
+        "required": true,
+        "default": null,
+        "explanation": "El ID del Npc."
+      },
+      {
+        "name": "Location",
+        "required": true,
+        "default": null,
+        "explanation": "La ubicación a la que será teletransportado el Npc."
+      },
+      {
+        "name": "Spawn",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si el NPC debe aparecer (spawnear) en caso de no estar en el mundo."
+      }
+    ]
+  },
+  {
+    "name": "Objective",
+    "kind": "action",
+    "syntax": "objective <operation> <objectives>",
+    "description": "Gestiona objectives.",
+    "example": "actions:\n  startQuest: \"objective add killTheDragon,goToDungeon\"\n  progressQuest: \"objective complete killTheDragon\"",
+    "id": "objective",
+    "keyword": "objective",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "objectives",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "action",
+        "required": true,
+        "default": null,
+        "explanation": "La acción a realizar con el/los objective(s)."
+      },
+      {
+        "name": "objective(s)",
+        "required": true,
+        "default": null,
+        "explanation": "El/los objective(s) sobre los que ejecutar la acción."
+      }
+    ]
+  },
+  {
+    "name": "OpSudo",
+    "kind": "action",
+    "syntax": "opsudo <commands>",
+    "description": "Ejecuta los comandos como el jugador con permisos de operador temporales.",
+    "example": "actions:\n  spawn: \"opsudo spawn\"",
+    "id": "opsudo",
+    "keyword": "opsudo",
+    "args": [
+      {
+        "raw": "commands",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Party",
+    "kind": "action",
+    "syntax": "party <range> <conditions> <actions> [amount]",
+    "description": "Ejecuta actions para todos los jugadores del grupo (party).",
+    "example": "actions:\n  givePartyReward: \"party 10 has_tag1,!has_tag2 give_reward\"\n  giveLimitedPartyReward: \"party 10 has_tag1,!has_tag2 give_special_reward amount:3\"",
+    "id": "party",
+    "keyword": "party",
+    "args": [
+      {
+        "raw": "range",
+        "required": true
+      },
+      {
+        "raw": "conditions",
+        "required": true
+      },
+      {
+        "raw": "actions",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "PickRandom",
+    "kind": "action",
+    "syntax": "pickrandom <actions> [amount]",
+    "description": "Elige actions al azar de la lista de actions especificada.",
+    "example": "actions:\n  pickTwo: \"pickrandom 20.5~action1,0.5~action2,79~action3 amount:2\"\n  PickThree: \"pickrandom %point.factionXP.amount%~action1,0.5~action2,79~action3,1~action4 amount:3\"",
+    "id": "pickrandom",
+    "keyword": "pickrandom",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Point",
+    "kind": "action",
+    "syntax": "point <category> <amount> <action>",
+    "description": "Gestiona los puntos en la categoría específica.",
+    "example": "actions:\n  gainAttitude: \"point npc_attitude 5 action:add\"\n  loseAttitude: \"point npc_attitude 2 action:subtract\"\n  resetCombo: \"point combo 0 action:set\"\n  boostPoints: \"point points 1.25 action:multiply notify\"",
+    "id": "point",
+    "keyword": "point",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "action",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "RemoveEntity",
+    "kind": "action",
+    "syntax": "removeentity <entitys> <location> <radius> [name] [marked] [type]",
+    "description": "Elimina o mata a todas las entidades del tipo especificado en la ubicación especificada.",
+    "example": "actions:\n  killArenaMobs: \"removeentity ZOMBIE 100;200;300;world 10 name:Monster kill\"\n  clearGameArea: \"removeentity ARROW,SNOWBALL,WOLF,ARMOR_STAND 100;200;300;world 50 marked:minigame\"",
+    "id": "removeentity",
+    "keyword": "removeentity",
+    "args": [
+      {
+        "raw": "entitys",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "radius",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "marked",
+        "required": false
+      },
+      {
+        "raw": "type",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "entity(s)",
+        "required": true,
+        "default": null,
+        "explanation": "Obligatorio. Lista de entidades (separadas por `,`)."
+      },
+      {
+        "name": "location",
+        "required": true,
+        "default": null,
+        "explanation": "Obligatorio. La ubicación central de las entidades objetivo."
+      },
+      {
+        "name": "radius",
+        "required": true,
+        "default": null,
+        "explanation": "Obligatorio. El radio alrededor de la ubicación."
+      },
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "explanation": "Nombre de la entidad."
+      },
+      {
+        "name": "marked",
+        "required": true,
+        "default": null,
+        "explanation": "Marca de la entidad (por ejemplo, proveniente de la [spawn action](#spawn))."
+      },
+      {
+        "name": "kill",
+        "required": true,
+        "default": null,
+        "explanation": "Si se debe eliminar o realmente matar a la entidad (si es posible)."
+      }
+    ]
+  },
+  {
+    "name": "Run",
+    "kind": "action",
+    "syntax": "run <actions>",
+    "description": "Permite especificar varias instrucciones dentro de una sola instrucción larga.",
+    "example": "actions:\n  eliminate: \"run ^tag add beton ^journal add beton ^give emerald:5 ^kill\"",
+    "id": "run",
+    "keyword": "run",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "RunForAll",
+    "kind": "action",
+    "syntax": "runforall <actions> <where>",
+    "description": "Ejecuta las actions especificadas una vez para cada jugador conectado.",
+    "example": "actions:\n  kickAll: \"runforall where:!isOp actions:kickPlayer,restartQuest\"",
+    "id": "runforall",
+    "keyword": "runforall",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      },
+      {
+        "raw": "where",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "actions",
+        "required": true,
+        "default": null,
+        "explanation": "Obligatorio. Las actions a ejecutar, separadas por `,`."
+      },
+      {
+        "name": "where",
+        "required": true,
+        "default": null,
+        "explanation": "Una lista opcional de conditions (separadas por `,`) que se verifican para cada jugador. <br>Las actions indicadas en `actions:` solo se ejecutan para los jugadores que cumplen todas las conditions dadas."
+      }
+    ]
+  },
+  {
+    "name": "RunIndependent",
+    "kind": "action",
+    "syntax": "runindependent <actions>",
+    "description": "Ejecuta las actions especificadas como si fueran independientes.",
+    "example": "actions:\n  resetQuestForAll: \"runindependent actions:removeObjective,clearTags,resetJournal\"",
+    "id": "runindependent",
+    "keyword": "runindependent",
+    "args": [
+      {
+        "raw": "actions",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "actions",
+        "required": true,
+        "default": null,
+        "explanation": "Obligatorio. Las actions a ejecutar, separadas por `,`."
+      }
+    ]
+  },
+  {
+    "name": "Score",
+    "kind": "action",
+    "syntax": "score <objective> <number> <action>",
+    "description": "Gestiona el objective del scoreboard del jugador.",
+    "example": "actions:\n  gotKill: \"score kill 1 action:add\"\n  gotKilled: \"score kill 1 action:subtract\"\n  resetKill: \"score kill 0 action:set\"\n  applyBonus: \"score kill 1.2 action:multiply\"",
+    "id": "score",
+    "keyword": "score",
+    "args": [
+      {
+        "raw": "objective",
+        "required": true
+      },
+      {
+        "raw": "number",
+        "required": true
+      },
+      {
+        "raw": "action",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ScoreTag",
+    "kind": "action",
+    "syntax": "scoretag <operation> <tag>",
+    "description": "Gestiona el tag de scoreboard del jugador.",
+    "example": "actions:\n  addVanillaTag: \"scoretag add vanilla_tag\"\n  removeVanillaTag: \"scoretag remove vanilla_tag\"",
+    "id": "scoretag",
+    "keyword": "scoretag",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "tag",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "modifier",
+        "required": true,
+        "default": null,
+        "explanation": "Si se debe agregar o quitar el tag."
+      },
+      {
+        "name": "scoreboard tag",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del tag de scoreboard."
+      }
+    ]
+  },
+  {
+    "name": "SetBlock",
+    "kind": "action",
+    "syntax": "setblock <block> <location> [ignorePhysics]",
+    "description": "Coloca el bloque en la ubicación especificada.",
+    "example": "actions:\n  setRedstoneBlock: \"setblock REDSTONE_BLOCK 100;200;300;world\"\n  flyingSand: \"setblock SAND 100;200;300;world ignorePhysics\"",
+    "id": "setblock",
+    "keyword": "setblock",
+    "args": [
+      {
+        "raw": "block",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "ignorePhysics",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Spawn",
+    "kind": "action",
+    "syntax": "spawn <location> <type> <amount> [name] [marked] [drops] [h] [c] [l] [b] [m] [o]",
+    "description": "Hace aparecer (spawnea) la cantidad especificada de mobs del tipo especificado en la ubicación especificada.",
+    "example": "actions:\n  spawnSkeleton: \"spawn 100;200;300;world SKELETON 5 marked:targets\"\n  spawnZombie: \"spawn 100;200;300;world ZOMBIE name:Bolec 1 h:blue_hat c:red_vest drops:emerald:10,bread:2\"",
+    "id": "spawn",
+    "keyword": "spawn",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "type",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "marked",
+        "required": false
+      },
+      {
+        "raw": "drops",
+        "required": false
+      },
+      {
+        "raw": "h",
+        "required": false
+      },
+      {
+        "raw": "c",
+        "required": false
+      },
+      {
+        "raw": "l",
+        "required": false
+      },
+      {
+        "raw": "b",
+        "required": false
+      },
+      {
+        "raw": "m",
+        "required": false
+      },
+      {
+        "raw": "o",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Stage",
+    "kind": "action",
+    "syntax": "stage <objective> <operation> <stage|amount>",
+    "description": "Gestiona el stage objective especificado del jugador.",
+    "example": "actions:\n  setCookCookies: \"stage bakeCookies set cookCookies\"\n  increase: \"stage bakeCookies increase\"\n  decrease2: \"stage bakeCookies decrease 2\"",
+    "id": "stage",
+    "keyword": "stage",
+    "args": [
+      {
+        "raw": "objective",
+        "required": true
+      },
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "stage|amount",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "stage objective",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del stage objective."
+      },
+      {
+        "name": "action",
+        "required": true,
+        "default": null,
+        "explanation": "La acción a realizar."
+      },
+      {
+        "name": "stage",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del stage a establecer cuando se usa `set`."
+      },
+      {
+        "name": "amount",
+        "required": false,
+        "default": "1",
+        "explanation": "La cantidad a aumentar o disminuir."
+      }
+    ]
+  },
+  {
+    "name": "Sudo",
+    "kind": "action",
+    "syntax": "sudo <commands>",
+    "description": "Ejecuta los comandos como el jugador.",
+    "example": "actions:\n  spawn: \"sudo spawn\"",
+    "id": "sudo",
+    "keyword": "sudo",
+    "args": [
+      {
+        "raw": "commands",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Tag",
+    "kind": "action",
+    "syntax": "tag <operation> <tags>",
+    "description": "Gestiona los tags del jugador.",
+    "example": "actions:\n  addStartTags: \"tag add quest_started,new_entry\"",
+    "id": "tag",
+    "keyword": "tag",
+    "args": [
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "tags",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Take",
+    "kind": "action",
+    "syntax": "take <items> [invOrder] [notify] [abort] [fail]",
+    "description": "Retira ítems del inventario o la mochila (backpack) del jugador.",
+    "example": "actions:\n  emeraldsAndSword: \"take emerald:120,sword\"\n  nuggets: \"take nugget:6 notify\"\n  wand: \"take wand notify invOrder:Backpack\"\n  money: \"take money:50 invOrder:Backpack,Inventory\"\n  armor: \"take armor invOrder:Armor,Offhand,Inventory,Backpack\"\n  takeBribe: \"take bribe:10 invOrder:mainHand fail:notEnough\"",
+    "id": "take",
+    "keyword": "take",
+    "args": [
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "invOrder",
+        "required": false
+      },
+      {
+        "raw": "notify",
+        "required": false
+      },
+      {
+        "raw": "abort",
+        "required": false
+      },
+      {
+        "raw": "fail",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Teleport",
+    "kind": "action",
+    "syntax": "teleport <location>",
+    "description": "Teletransporta al jugador a la ubicación especificada.",
+    "example": "actions:\n  toCity: \"teleport 432;121;532;world\" # (1)!\n  toHell: \"teleport 123;32;-789;world_the_nether;180;45\" # (2)!",
+    "id": "teleport",
+    "keyword": "teleport",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "location",
+        "required": true,
+        "default": null,
+        "explanation": "La ubicación a la que será teletransportado el jugador."
+      }
+    ]
+  },
+  {
+    "name": "Time",
+    "kind": "action",
+    "syntax": "time <time> [world] [ticks]",
+    "description": "Gestiona la hora del mundo especificado.",
+    "example": "actions:\n  set6: \"time 6\"\n  increase: \"time +0.1\"\n  decreaseRpgWorld: \"time -12 world:rpgworld\"\n  increaseRandom: \"time +%randomnumber.whole.100~2000% world:pvpworld ticks\"",
+    "id": "time",
+    "keyword": "time",
+    "args": [
+      {
+        "raw": "time",
+        "required": true
+      },
+      {
+        "raw": "world",
+        "required": false
+      },
+      {
+        "raw": "ticks",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Variable",
+    "kind": "action",
+    "syntax": "variable <objective> <key> <value>",
+    "description": "Gestiona valores almacenados en variables del objective `variable`.",
+    "example": "actions:\n  goody: \"variable CustomVariable MyFirstVariable Goodbye!\"\n  playerName: \"variable variable_objectiveID name %player%\"\n  delete: 'variable other_var_obj desc \"\"'",
+    "id": "variable",
+    "keyword": "variable",
+    "args": [
+      {
+        "raw": "objective",
+        "required": true
+      },
+      {
+        "raw": "key",
+        "required": true
+      },
+      {
+        "raw": "value",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Velocity",
+    "kind": "action",
+    "syntax": "velocity <vector> <direction> <modification>",
+    "description": "Gestiona la velocidad del jugador.",
+    "example": "actions:\n  jumppad: \"velocity vector:(2;0.8;4)\"\n  dash: \"velocity vector:(0;0.1;1.3) direction:relative_y\"\n  individual_dash: \"velocity vector:%objective.customPlaceholder.dashLength% direction:relative_y\"\n  fly: \"velocity vector:(0;0.1;2) direction:relative modification:add\"",
+    "id": "velocity",
+    "keyword": "velocity",
+    "args": [
+      {
+        "raw": "vector",
+        "required": true
+      },
+      {
+        "raw": "direction",
+        "required": true
+      },
+      {
+        "raw": "modification",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "vector",
+        "required": true,
+        "default": null,
+        "explanation": "Los valores del vector, que son números decimales, pueden interpretarse como números absolutos (como una coordenada) o como direcciones relativas. Para entenderlo mejor, la dirección relativa es similar a `^ ^ ^` en minecraft, o dicho de otra forma, `(lateral;hacia arriba;hacia adelante)`."
+      },
+      {
+        "name": "direction",
+        "required": false,
+        "default": "`absolute`",
+        "explanation": "Hay 3 formas en que el vector se aplica al jugador:<br> `absolute` no cambia el vector en absoluto.<br> `relative` redirige el vector según la vista del jugador.<br> `relative_y` es una mezcla entre absoluto y relativo. Sigue apuntando según la vista pero solo horizontalmente, así que el eje y queda absoluto."
+      },
+      {
+        "name": "modification",
+        "required": false,
+        "default": "`set`",
+        "explanation": "Las modificaciones posibles son `set` y `add`. El tipo de modificación determina cómo se combina el vector con la velocidad del jugador. La velocidad del jugador es la fuerza externa aplicada sobre él."
+      }
+    ]
+  },
+  {
+    "name": "Weather",
+    "kind": "action",
+    "syntax": "weather <type> [duration] [world]",
+    "description": "Gestiona el clima del mundo.",
+    "example": "actions:\n  setSun: \"weather sun\"\n  setShortRain: \"weather rain duration:60 world:rpgworld\"\n  setStorm: \"weather storm duration:%point.tribute.left:150%\"",
+    "id": "weather",
+    "keyword": "weather",
+    "args": [
+      {
+        "raw": "type",
+        "required": true
+      },
+      {
+        "raw": "duration",
+        "required": false
+      },
+      {
+        "raw": "world",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "type",
+        "required": true,
+        "default": null,
+        "explanation": "El tipo de clima a establecer. Puede ser `sun`, `rain` o `storm`."
+      },
+      {
+        "name": "duration",
+        "required": false,
+        "default": "Minecraft decides randomly.",
+        "explanation": "La duración que durará el clima (en segundos). <br> Luego minecraft se encarga de administrarlo."
+      },
+      {
+        "name": "world",
+        "required": false,
+        "default": "The player's current world.",
+        "explanation": "El mundo en el que cambiar el clima."
+      }
+    ]
+  },
+  {
+    "name": "Advancement",
+    "kind": "condition",
+    "syntax": "advancement <name>",
+    "description": "Si el jugador tiene el advancement especificado.",
+    "example": "conditions:\n  killedAllMobs: \"advancement adventure/kill_all_mobs\"\n  killedAMob: \"advancement minecraft:adventure/kill_a_mob\"",
+    "id": "advancement",
+    "keyword": "advancement",
+    "args": [
+      {
+        "raw": "name",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "And",
+    "kind": "condition",
+    "syntax": "and <conditions>",
+    "description": "La conjunción de las conditions especificadas.",
+    "example": "conditions:\n  hasArmor: \"and has_helmet,has_chestplate,has_leggings,has_boots\"",
+    "id": "and",
+    "keyword": "and",
+    "args": [
+      {
+        "raw": "conditions",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Armor",
+    "kind": "condition",
+    "syntax": "armor <item>",
+    "description": "Si el jugador lleva puesta la armadura especificada en la sección _items_.",
+    "example": "conditions:\n  armorHelmet: \"armor helmet_of_concrete\"",
+    "id": "armor",
+    "keyword": "armor",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Biome",
+    "kind": "condition",
+    "syntax": "biome <biome>",
+    "description": "Si el jugador está en el bioma especificado.",
+    "example": "conditions:\n  inSavannaRock: \"biome savanna_rock\"",
+    "id": "biome",
+    "keyword": "biome",
+    "args": [
+      {
+        "raw": "biome",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Burning",
+    "kind": "condition",
+    "syntax": "burning",
+    "description": "Si el jugador está en llamas.",
+    "example": "conditions:\n  isOnFire: \"burning\"",
+    "id": "burning",
+    "keyword": "burning",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Check",
+    "kind": "condition",
+    "syntax": "check <conditions>",
+    "description": "Permite especificar varias instrucciones dentro de una sola instrucción conjuntiva.",
+    "example": "conditions:\n  fulfillRequirements: \"check ^tag beton ^item emerald:5 ^location 100;200;300;survival_nether;5 ^experience 20\"",
+    "id": "check",
+    "keyword": "check",
+    "args": [
+      {
+        "raw": "conditions",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ChestItem",
+    "kind": "condition",
+    "syntax": "chestitem <location> <items>",
+    "description": "Si los ítems especificados están en el cofre especificado.",
+    "example": "conditions:\n  emeraldsInChest: \"chestitem 100;200;300;world emerald:5,sword\"",
+    "id": "chestitem",
+    "keyword": "chestitem",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "items",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Conversation",
+    "kind": "condition",
+    "syntax": "conversation <conversation>",
+    "description": "Si la conversation tiene una opción inicial disponible.",
+    "example": "conditions:\n  isInInnkeeperConv: \"conversation innkeeper\"",
+    "id": "conversation",
+    "keyword": "conversation",
+    "args": [
+      {
+        "raw": "conversation",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "DayOfWeek",
+    "kind": "condition",
+    "syntax": "dayofweek <day>",
+    "description": "Si el día actual de la semana es el especificado.",
+    "example": "conditions:\n  isSunday: \"dayofweek sunday\"",
+    "id": "dayofweek",
+    "keyword": "dayofweek",
+    "args": [
+      {
+        "raw": "day",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Effect",
+    "kind": "condition",
+    "syntax": "effect <effect>",
+    "description": "Si el jugador tiene el efecto de poción especificado.",
+    "example": "conditions:\n  hasSpeed: \"effect SPEED\"",
+    "id": "effect",
+    "keyword": "effect",
+    "args": [
+      {
+        "raw": "effect",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Empty",
+    "kind": "condition",
+    "syntax": "empty <amount>",
+    "description": "Si el jugador tiene al menos la cantidad especificada de slots de inventario vacíos.",
+    "example": "conditions:\n  hasFiveEmptySlots: \"empty 5\"",
+    "id": "empty",
+    "keyword": "empty",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Entities",
+    "kind": "condition",
+    "syntax": "entities <entities> <location> <range> [name] [marked]",
+    "description": "Si hay al menos la cantidad especificada de entidades especificadas en el área especificada.",
+    "example": "conditions:\n  daemonsSpawned: \"entities ZOMBIE:2 100;200;300;world 10 name:Daemon\"",
+    "id": "entities",
+    "keyword": "entities",
+    "args": [
+      {
+        "raw": "entities",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "range",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "marked",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Eval",
+    "kind": "condition",
+    "syntax": "eval <expression>",
+    "description": "Evalúa la expresión y verifica la condition resultante.",
+    "example": "conditions:\n  simpleEval: \"eval chestitem -288;64;357;World emerald:5\"\n  complexEval: \"eval point ranking 5 %objective.settings.equal%\" #(1)!",
+    "id": "eval",
+    "keyword": "eval",
+    "args": [
+      {
+        "raw": "expression",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Experience",
+    "kind": "condition",
+    "syntax": "experience <amount>",
+    "description": "Si el jugador tiene la cantidad especificada de niveles de experiencia.",
+    "example": "conditions:\n  hasLevel30: \"experience 30\"\n  hasLevel5dot5: \"experience 5.5\"",
+    "id": "experience",
+    "keyword": "experience",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Facing",
+    "kind": "condition",
+    "syntax": "facing <direction>",
+    "description": "Si el jugador está mirando hacia la dirección especificada.",
+    "example": "conditions:\n  lookingEast: \"facing EAST\"",
+    "id": "facing",
+    "keyword": "facing",
+    "args": [
+      {
+        "raw": "direction",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Fly",
+    "kind": "condition",
+    "syntax": "fly",
+    "description": "Si el jugador está volando actualmente (vuelo tipo Elytra).",
+    "example": "conditions:\n  isFlying: \"fly\"",
+    "id": "fly",
+    "keyword": "fly",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Gamemode",
+    "kind": "condition",
+    "syntax": "gamemode <gamemode>",
+    "description": "Si el jugador está en el modo de juego especificado.",
+    "example": "conditions:\n  isInSurvival: \"gamemode survival\"",
+    "id": "gamemode",
+    "keyword": "gamemode",
+    "args": [
+      {
+        "raw": "gamemode",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "GlobalPoint",
+    "kind": "condition",
+    "syntax": "globalpoint <category> <point>",
+    "description": "Si la categoría de puntos global especificada tiene la cantidad especificada de puntos.",
+    "example": "conditions:\n  has100Users: \"globalpoint global_knownusers 100\"",
+    "id": "globalpoint",
+    "keyword": "globalpoint",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      },
+      {
+        "raw": "point",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "GlobalTag",
+    "kind": "condition",
+    "syntax": "globaltag <tag>",
+    "description": "Si el tag global especificado está activado.",
+    "example": "conditions:\n  areNpcsAggressive: \"globaltag global_areNPCsAggressive\"",
+    "id": "globaltag",
+    "keyword": "globaltag",
+    "args": [
+      {
+        "raw": "tag",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Hand",
+    "kind": "condition",
+    "syntax": "hand <item> [offhand]",
+    "description": "Si el jugador tiene en la mano el quest item especificado.",
+    "example": "conditions:\n  holdSword: \"hand SpecialSword\"\n  holdShieldOffhand: \"hand QuestShield offhand\"",
+    "id": "hand",
+    "keyword": "hand",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "offhand",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Health",
+    "kind": "condition",
+    "syntax": "health <amount>",
+    "description": "Si el jugador tiene al menos la cantidad de vida especificada.",
+    "example": "conditions:\n  has5dot6Health: \"health 5.6\"",
+    "id": "health",
+    "keyword": "health",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Height",
+    "kind": "condition",
+    "syntax": "height <amount>",
+    "description": "Si el jugador está _por debajo_ de la altura especificada.",
+    "example": "conditions:\n  isBelow16: \"height 16\"",
+    "id": "height",
+    "keyword": "height",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Hunger",
+    "kind": "condition",
+    "syntax": "hunger <amount>",
+    "description": "Si el jugador tiene al menos la cantidad de hambre especificada.",
+    "example": "conditions:\n  has15orMoreHunger: \"hunger 15\"",
+    "id": "hunger",
+    "keyword": "hunger",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "InConversation",
+    "kind": "condition",
+    "syntax": "inconversation [conversation]",
+    "description": "Si el jugador está actualmente en la conversation especificada.",
+    "example": "conditions:\n  isInConversation: \"inconversation\"\n  talksToInnkeeper: \"inconversation conversation:innkeeper\"",
+    "id": "inconversation",
+    "keyword": "inconversation",
+    "args": [
+      {
+        "raw": "conversation",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "conversation",
+        "required": true,
+        "default": null,
+        "explanation": "Nombre opcional de la conversation. Si se especifica, solo se verificará la conversation con ese nombre."
+      }
+    ]
+  },
+  {
+    "name": "Item",
+    "kind": "condition",
+    "syntax": "item <items>",
+    "description": "Si el jugador tiene los ítems especificados en su inventario o mochila.",
+    "example": "conditions:\n  emeraldsAndGold: \"item emerald:5,gold:10\"",
+    "id": "item",
+    "keyword": "item",
+    "args": [
+      {
+        "raw": "items",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ItemDurability",
+    "kind": "condition",
+    "syntax": "itemdurability <slot> <amount> [relative]",
+    "description": "Si el jugador tiene cierta cantidad de durabilidad en un ítem.",
+    "example": "conditions:\n  handOver50: \"itemdurability HAND 50\"\n  chestMoreThan50Percent: \"itemdurability CHEST 0.5 relative\"",
+    "id": "itemdurability",
+    "keyword": "itemdurability",
+    "args": [
+      {
+        "raw": "slot",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "relative",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Journal",
+    "kind": "condition",
+    "syntax": "journal <entry>",
+    "description": "Si el jugador tiene la entrada de diario especificada.",
+    "example": "conditions:\n  journalHasWoodStarted: \"journal wood_started\"",
+    "id": "journal",
+    "keyword": "journal",
+    "args": [
+      {
+        "raw": "entry",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Language",
+    "kind": "condition",
+    "syntax": "language <languages>",
+    "description": "Si el jugador tiene seleccionado alguno de los idiomas especificados.",
+    "example": "conditions:\n  hasValidLanguage: \"language en-US,de-DE,fr-FR\"",
+    "id": "language",
+    "keyword": "language",
+    "args": [
+      {
+        "raw": "languages",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Location",
+    "kind": "condition",
+    "syntax": "location <location> <radius>",
+    "description": "Si el jugador está en la ubicación especificada dentro del radio especificado.",
+    "example": "conditions:\n  netherEntrance: \"location 100;200;300;survival_nether 5\"",
+    "id": "location",
+    "keyword": "location",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "radius",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Looking",
+    "kind": "condition",
+    "syntax": "looking [location | type]",
+    "description": "Si el jugador está mirando hacia el bloque especificado en la ubicación especificada, o con el material especificado.",
+    "example": "conditions:\n  targetingStone: \"looking loc:12.0;14.0;-15.0;world type:STONE\"",
+    "id": "looking",
+    "keyword": "looking",
+    "args": [
+      {
+        "raw": "location | type",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Moonphase",
+    "kind": "condition",
+    "syntax": "moonphase <moonphase> [world]",
+    "description": "Si la fase lunar especificada coincide con la del mundo especificado.",
+    "example": "conditions:\n  fullMoon: \"moonphase FULL_MOON\"\n  darkInHub: \"moonphase WANING_CRESCENT,NEW_MOON,WAXING_CRESCENT world:hub\"\n  playersFirstJoinMoon: \"moonphase %ph.player_first_join_moon%\"",
+    "id": "moonphase",
+    "keyword": "moonphase",
+    "args": [
+      {
+        "raw": "moonphase",
+        "required": true
+      },
+      {
+        "raw": "world",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "MoonPhase",
+        "required": true,
+        "default": null,
+        "explanation": "Una lista de fases lunares a verificar."
+      },
+      {
+        "name": "world",
+        "required": false,
+        "default": "player location",
+        "explanation": "El mundo en el que verificar la fase lunar."
+      }
+    ]
+  },
+  {
+    "name": "NpcDistance",
+    "kind": "condition",
+    "syntax": "npcdistance <npc> <distance>",
+    "description": "Si el jugador está dentro del radio especificado del NPC especificado.",
+    "example": "conditions:\n  canHearBandit: \"npcdistance bandit 22\"",
+    "id": "npcdistance",
+    "keyword": "npcdistance",
+    "args": [
+      {
+        "raw": "npc",
+        "required": true
+      },
+      {
+        "raw": "distance",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "Npc",
+        "required": true,
+        "default": null,
+        "explanation": "El ID del Npc."
+      },
+      {
+        "name": "Distance",
+        "required": true,
+        "default": null,
+        "explanation": "La distancia máxima."
+      }
+    ]
+  },
+  {
+    "name": "NpcLocation",
+    "kind": "condition",
+    "syntax": "npclocation <npc> <location> <distance>",
+    "description": "Si el NPC especificado está en la ubicación especificada dentro del radio especificado.",
+    "example": "conditions:\n  nearTarget: \"npclocation merchant 4.0;14.0;-20.0;world 22\"",
+    "id": "npclocation",
+    "keyword": "npclocation",
+    "args": [
+      {
+        "raw": "npc",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "distance",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "Npc",
+        "required": true,
+        "default": null,
+        "explanation": "El ID del Npc."
+      },
+      {
+        "name": "Location",
+        "required": true,
+        "default": null,
+        "explanation": "La ubicación."
+      },
+      {
+        "name": "Distance",
+        "required": true,
+        "default": null,
+        "explanation": "La distancia máxima."
+      }
+    ]
+  },
+  {
+    "name": "NumberCompare",
+    "kind": "condition",
+    "syntax": "numbercompare <number1> <operation> <number2>",
+    "description": "Esta condition compara dos números.",
+    "example": "conditions:\n  hasMoreThan100Points: \"numbercompare %ph.other_plugin:points% >= 100\"",
+    "id": "numbercompare",
+    "keyword": "numbercompare",
+    "args": [
+      {
+        "raw": "number1",
+        "required": true
+      },
+      {
+        "raw": "operation",
+        "required": true
+      },
+      {
+        "raw": "number2",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Objective",
+    "kind": "condition",
+    "syntax": "objective <objective>",
+    "description": "Si el jugador tiene el objective especificado.",
+    "example": "conditions:\n  hasWoodObjective: \"objective wood\"",
+    "id": "objective",
+    "keyword": "objective",
+    "args": [
+      {
+        "raw": "objective",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Or",
+    "kind": "condition",
+    "syntax": "or <conditions>",
+    "description": "La disyunción de las conditions especificadas.",
+    "example": "conditions:\n  hasOneRequirement: \"or night,rain,!has_armor\"",
+    "id": "or",
+    "keyword": "or",
+    "args": [
+      {
+        "raw": "conditions",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "PartialDate",
+    "kind": "condition",
+    "syntax": "partialdate <pattern>",
+    "description": "Si la fecha actual coincide con el patrón especificado.",
+    "example": "conditions:\n  isEventDate: \"partialdate day:1-5,20 year:2017\"",
+    "id": "partialdate",
+    "keyword": "partialdate",
+    "args": [
+      {
+        "raw": "pattern",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Party",
+    "kind": "condition",
+    "syntax": "party <radius> <conditions> [location] [every] [any] [count]",
+    "description": "Si los miembros del grupo (party) cumplen las conditions especificadas.",
+    "example": "conditions:\n  partyRequirements: \"party 10 has_tag1,!has_tag2 every:some_item any:some_location,some_other_item count:5\"",
+    "id": "party",
+    "keyword": "party",
+    "args": [
+      {
+        "raw": "radius",
+        "required": true
+      },
+      {
+        "raw": "conditions",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": false
+      },
+      {
+        "raw": "every",
+        "required": false
+      },
+      {
+        "raw": "any",
+        "required": false
+      },
+      {
+        "raw": "count",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Permission",
+    "kind": "condition",
+    "syntax": "permission <permission>",
+    "description": "Si el jugador tiene el permiso especificado.",
+    "example": "conditions:\n  essentialsTpaPermissions: \"permission essentials.tpa\"",
+    "id": "permission",
+    "keyword": "permission",
+    "args": [
+      {
+        "raw": "permission",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Point",
+    "kind": "condition",
+    "syntax": "point <category> <amount> [equal]",
+    "description": "Si el jugador tiene al menos la cantidad especificada de puntos en la categoría especificada.",
+    "example": "conditions:\n  has20BetonPoints: \"point beton 20\"",
+    "id": "point",
+    "keyword": "point",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "equal",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Random",
+    "kind": "condition",
+    "syntax": "random <number>",
+    "description": "Esta condition se cumple al azar usando la probabilidad especificada.",
+    "example": "conditions:\n  twelfthPercent: \"random 12-100\"",
+    "id": "random",
+    "keyword": "random",
+    "args": [
+      {
+        "raw": "number",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Rating",
+    "kind": "condition",
+    "syntax": "rating <amount>",
+    "description": "Si el jugador lleva puesta una armadura que otorga al menos la cantidad especificada de protección (íconos de armadura).",
+    "example": "conditions:\n  armorRating10: \"rating 10\"",
+    "id": "rating",
+    "keyword": "rating",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "RealTime",
+    "kind": "condition",
+    "syntax": "realtime <timespan>",
+    "description": "Si la hora especificada coincide con la hora real actual.",
+    "example": "conditions:\n  allDayReal: \"realtime 6-19\"\n  midnightReal: \"realtime 23:30-0:30\"\n  knoppersTimeReal: \"realtime 9:30-10\"",
+    "id": "realtime",
+    "keyword": "realtime",
+    "args": [
+      {
+        "raw": "timespan",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "Timespan",
+        "required": true,
+        "default": null,
+        "explanation": "Dos puntos en el tiempo separados por un guion en formato de 24 horas (0 - 24). Los minutos son opcionales (hh o hh:mm)."
+      }
+    ]
+  },
+  {
+    "name": "Ride",
+    "kind": "condition",
+    "syntax": "ride <entity>",
+    "description": "Si el jugador está montado sobre la [entidad](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) especificada.",
+    "example": "conditions:\n  horse: \"ride horse\"\n  anything: \"ride any\"",
+    "id": "ride",
+    "keyword": "ride",
+    "args": [
+      {
+        "raw": "entity",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Score",
+    "kind": "condition",
+    "syntax": "score <score> <amount>",
+    "description": "Si el puntaje en el objective de scoreboard especificado tiene al menos la cantidad especificada.",
+    "example": "conditions:\n  hasAtLeastTenKills: \"score kills 10\"",
+    "id": "score",
+    "keyword": "score",
+    "args": [
+      {
+        "raw": "score",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "scoreboard objective",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del objective de scoreboard."
+      },
+      {
+        "name": "count",
+        "required": true,
+        "default": null,
+        "explanation": "El número entero mínimo del objective."
+      }
+    ]
+  },
+  {
+    "name": "ScoreTag",
+    "kind": "condition",
+    "syntax": "scoretag <tag>",
+    "description": "Si el jugador tiene el tag de scoreboard especificado.",
+    "example": "conditions:\n  hasVanillaTag: \"scoretag vanilla_tag\"",
+    "id": "scoretag",
+    "keyword": "scoretag",
+    "args": [
+      {
+        "raw": "tag",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "scoreboard tag",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del tag de scoreboard."
+      }
+    ]
+  },
+  {
+    "name": "Sneak",
+    "kind": "condition",
+    "syntax": "sneak",
+    "description": "Si el jugador está agachado (sneak).",
+    "example": "conditions:\n  isSneaking: \"sneak\"",
+    "id": "sneak",
+    "keyword": "sneak",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Stage",
+    "kind": "condition",
+    "syntax": "stage <objective> <comparator> <stage>",
+    "description": "Compara el stage actual del jugador con el stage especificado usando sus números de índice.",
+    "example": "conditions:\n  isDeliverCookies: \"stage bakeCookies = deliverCookies\"\n  isDeliverCookiesOrAbove: \"stage bakeCookies > cookCookies\"",
+    "id": "stage",
+    "keyword": "stage",
+    "args": [
+      {
+        "raw": "objective",
+        "required": true
+      },
+      {
+        "raw": "comparator",
+        "required": true
+      },
+      {
+        "raw": "stage",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "stage objective",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del stage objective."
+      },
+      {
+        "name": "comparator",
+        "required": true,
+        "default": null,
+        "explanation": "El comparador a usar en la comparación."
+      },
+      {
+        "name": "stage",
+        "required": true,
+        "default": null,
+        "explanation": "El nombre del stage a comparar."
+      }
+    ]
+  },
+  {
+    "name": "Tag",
+    "kind": "condition",
+    "syntax": "tag <tag>",
+    "description": "Si el jugador tiene el tag especificado.",
+    "example": "conditions:\n  questCompleted: \"tag quest_completed\"",
+    "id": "tag",
+    "keyword": "tag",
+    "args": [
+      {
+        "raw": "tag",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "TestForBlock",
+    "kind": "condition",
+    "syntax": "testforblock <location> <selector>",
+    "description": "Si el bloque en la ubicación especificada coincide con el material especificado.",
+    "example": "conditions:\n  stoneSet: \"testforblock 100;200;300;world STONE\"",
+    "id": "testforblock",
+    "keyword": "testforblock",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "selector",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Time",
+    "kind": "condition",
+    "syntax": "time <timespan> [world]",
+    "description": "Si la hora específica coincide con la hora actual del mundo especificado.",
+    "example": "conditions:\n  allDay: \"time 6-19\"\n  midnightInOverworld: \"time 23:30-0:30 world:overworld\"\n  knoppersTime: \"time 9:30-10\"\n  exactAtTwelveAtPlayersHome: \"time 12-12 world:%ph.player_home_world%\"",
+    "id": "time",
+    "keyword": "time",
+    "args": [
+      {
+        "raw": "timespan",
+        "required": true
+      },
+      {
+        "raw": "world",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Timespan",
+        "required": true,
+        "default": null,
+        "explanation": "Dos puntos en el tiempo separados por un guion en formato de 24 horas (0 - 24). Los minutos son opcionales (hh o hh:mm)."
+      },
+      {
+        "name": "world",
+        "required": false,
+        "default": "player location",
+        "explanation": "El mundo en el que verificar la hora."
+      }
+    ]
+  },
+  {
+    "name": "Variable",
+    "kind": "condition",
+    "syntax": "variable <placeholder> <regex> [forceSync]",
+    "description": "Si el valor del placeholder coincide con la [expresión regular](Definition-Encyclopedia.md#regular-expressions) especificada.",
+    "example": "conditions:\n  anyNumber: \"variable %objective.var.price% -?\\\\d+\" #(1)!\n  isPlayer: \"variable %ph.parties_members_1% %player%\" #(2)!\n  denizenPlaceholder: \"variable %ph.denizen_<server.match_player[SomeName].has_flag[flag_name]>% true forceSync\" #(3)!\n  denizenPlaceholderThis: \"variable %ph.denizen_<player.has_flag[flag_name]>% true forceSync\" #(4)!",
+    "id": "variable",
+    "keyword": "variable",
+    "args": [
+      {
+        "raw": "placeholder",
+        "required": true
+      },
+      {
+        "raw": "regex",
+        "required": true
+      },
+      {
+        "raw": "forceSync",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Placeholder",
+        "required": true,
+        "default": null,
+        "explanation": "El placeholder (rodeado por caracteres `%`)."
+      },
+      {
+        "name": "Regex",
+        "required": true,
+        "default": null,
+        "explanation": "La [regex](Definition-Encyclopedia.md#regular-expressions) que debe cumplir el valor del placeholder. La regex también puede estar guardada en un placeholder."
+      },
+      {
+        "name": "forceSync",
+        "required": false,
+        "default": "False",
+        "explanation": "Fuerza a que el placeholder se resuelva en el hilo principal. Algunos placeholders de terceros pueden requerirlo."
+      }
+    ]
+  },
+  {
+    "name": "Weather",
+    "kind": "condition",
+    "syntax": "weather <weather> [world]",
+    "description": "Si el clima especificado coincide con el clima actual del mundo especificado.",
+    "example": "conditions:\n  isSunny: \"weather sun\"\n  weatherInPlayerWorld: \"weather rain world:%ph.player_home_world%\"\n  overworldIsRainy: \"weather rain world:overworld\"",
+    "id": "weather",
+    "keyword": "weather",
+    "args": [
+      {
+        "raw": "weather",
+        "required": true
+      },
+      {
+        "raw": "world",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "weather",
+        "required": true,
+        "default": null,
+        "explanation": "El clima a verificar."
+      },
+      {
+        "name": "world",
+        "required": false,
+        "default": "player location",
+        "explanation": "El mundo en el que verificar el clima."
+      }
+    ]
+  },
+  {
+    "name": "World",
+    "kind": "condition",
+    "syntax": "world <world>",
+    "description": "Si el jugador está en el mundo especificado.",
+    "example": "conditions:\n  isInWorld: \"world world\"",
+    "id": "world",
+    "keyword": "world",
+    "args": [
+      {
+        "raw": "world",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Action",
+    "kind": "objective",
+    "syntax": "action <action> <block> [location] [range] [cancel] [hand]",
+    "description": "El jugador debe interactuar con el bloque especificado.",
+    "example": "objectives:\n  door: \"action right DOOR conditions:holding_key loc:100;200;300;world range:5\"\n  customWand: \"action any any conditions:holding_magicWand actions:fireSpell\"",
+    "id": "action",
+    "keyword": "action",
+    "args": [
+      {
+        "raw": "action",
+        "required": true
+      },
+      {
+        "raw": "block",
+        "required": true
+      },
+      {
+        "raw": "location",
+        "required": false
+      },
+      {
+        "raw": "range",
+        "required": false
+      },
+      {
+        "raw": "cancel",
+        "required": false
+      },
+      {
+        "raw": "hand",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Click Type",
+        "required": true,
+        "default": null,
+        "explanation": "Qué tipo de clic debe manejarse."
+      },
+      {
+        "name": "Block Type",
+        "required": true,
+        "default": null,
+        "explanation": "El bloque que debe ser clicado, o `any` para incluso el aire."
+      },
+      {
+        "name": "Location",
+        "required": false,
+        "default": "Optional. Default: none",
+        "explanation": "Agrega una ubicación opcional al objective, contando solo los clics en bloques en esa ubicación específica."
+      },
+      {
+        "name": "range",
+        "required": false,
+        "default": "0",
+        "explanation": "El rango alrededor de la ubicación donde contar los clics."
+      },
+      {
+        "name": "cancel",
+        "required": false,
+        "default": "Not Set",
+        "explanation": "Evita que el jugador interactúe con el bloque."
+      },
+      {
+        "name": "hand",
+        "required": false,
+        "default": "`hand`",
+        "explanation": "La mano que el jugador debe usar para clicar el bloque. Con `any` el objective puede completarse varias veces."
+      }
+    ]
+  },
+  {
+    "name": "Arrow",
+    "kind": "objective",
+    "syntax": "arrow <location> <radius>",
+    "description": "El jugador debe disparar una flecha hacia el área especificada.",
+    "example": "objectives:\n  shootTarget: \"arrow 100.5;200.5;300.5;world 1.1 actions:reward conditions:correct_player_position\"",
+    "id": "arrow",
+    "keyword": "arrow",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "radius",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Block",
+    "kind": "objective",
+    "syntax": "block <block> <amount> [safetyCheck] [notifications] [location] [region] [ignorecancel]",
+    "description": "El jugador debe romper o colocar la cantidad especificada de bloques.",
+    "example": "objectives:\n  breakLogs: \"block .*_LOG -16 actions:reward notify\"\n  placeBricks: \"block BRICKS 64 actions:epicReward notify:5\"\n  breakIron: \"block IRON_ORE -16 noSafety notify actions:dailyReward\"",
+    "id": "block",
+    "keyword": "block",
+    "args": [
+      {
+        "raw": "block",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "safetyCheck",
+        "required": false
+      },
+      {
+        "raw": "notifications",
+        "required": false
+      },
+      {
+        "raw": "location",
+        "required": false
+      },
+      {
+        "raw": "region",
+        "required": false
+      },
+      {
+        "raw": "ignorecancel",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Block Type",
+        "required": true,
+        "default": null,
+        "explanation": "El bloque que debe romperse o colocarse."
+      },
+      {
+        "name": "Amount",
+        "required": true,
+        "default": null,
+        "explanation": "La cantidad de bloques a romper o colocar. Menor que 0 para romper y mayor que 0 para colocar bloques."
+      },
+      {
+        "name": "Safety Check",
+        "required": false,
+        "default": "Safety Check Enabled",
+        "explanation": "El Safety Check evita falsear el objective. El progreso se reduce cuando el jugador hace lo contrario de lo que debería. Ejemplo: el jugador debe romper 10 bloques. Coloca 10 de sus bloques guardados. Ahora la cantidad total de bloques a romper es 20."
+      },
+      {
+        "name": "Notifications",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Muestra mensajes al jugador cada vez que avanza en el objective. Opcionalmente con el intervalo de notificación después de los dos puntos."
+      },
+      {
+        "name": "Location",
+        "required": false,
+        "default": "Optional. Default: none",
+        "explanation": "Agrega una ubicación opcional al objective, contando solo los bloques rotos/colocados en esa ubicación específica."
+      },
+      {
+        "name": "Region definer",
+        "required": false,
+        "default": "Optional. Default: none",
+        "explanation": "Agrega una segunda ubicación opcional para contar solo los bloques rotos/colocados dentro de un rectángulo entre la ubicación especificada y esta. No tiene efecto si el parámetro location no está definido."
+      },
+      {
+        "name": "ignorecancel",
+        "required": false,
+        "default": "Protected blocks will not affect the objective",
+        "explanation": "Permite que el objective avance aunque la acción sea cancelada por el servidor. Por ejemplo, si al jugador no se le permite construir."
+      }
+    ]
+  },
+  {
+    "name": "Breed",
+    "kind": "objective",
+    "syntax": "breed <animal> <amount>",
+    "description": "El jugador debe criar animales del tipo especificado.",
+    "example": "objectives:\n  10Cows: \"breed cow 10 notify:2 actions:reward\"",
+    "id": "breed",
+    "keyword": "breed",
+    "args": [
+      {
+        "raw": "animal",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Brew",
+    "kind": "objective",
+    "syntax": "brew <item> [amount]",
+    "description": "El jugador debe preparar (brewear) los ítems especificados.",
+    "example": "objectives:\n  weird: \"brew weird_concoction 4 actions:add_tag\"",
+    "id": "brew",
+    "keyword": "brew",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "ChestPut",
+    "kind": "objective",
+    "syntax": "chestput <location> <items> [items-stay] [multipleaccess]",
+    "description": "El jugador debe colocar los ítems especificados en el cofre especificado.",
+    "example": "objectives:\n  emeraldsAndSword: \"chestput 100;200;300;world emerald:5,sword actions:tag,message\"\n  apples: \"chestput 0;50;100;world apple:42 actions:message multipleaccess:true\"",
+    "id": "chestput",
+    "keyword": "chestput",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "items-stay",
+        "required": false
+      },
+      {
+        "raw": "multipleaccess",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Command",
+    "kind": "objective",
+    "syntax": "command <command> [ignoreCase] [exact] [cancel] [failActions]",
+    "description": "El jugador debe ejecutar el comando especificado.",
+    "example": "objectives:\n  warp: 'command \"/warp %player% farms\" actions:action1,action2'\n  replace: 'command \"//replace oak_wood\" actions:action1,action2'",
+    "id": "command",
+    "keyword": "command",
+    "args": [
+      {
+        "raw": "command",
+        "required": true
+      },
+      {
+        "raw": "ignoreCase",
+        "required": false
+      },
+      {
+        "raw": "exact",
+        "required": false
+      },
+      {
+        "raw": "cancel",
+        "required": false
+      },
+      {
+        "raw": "failActions",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Consume",
+    "kind": "objective",
+    "syntax": "consume <item> [amount]",
+    "description": "El jugador debe consumir el ítem especificado.",
+    "example": "objectives:\n  eatApple: \"consume apple actions:faster_endurance_regen\"\n  eatSteak: \"consume steak amount:4 actions:health_boost\"",
+    "id": "consume",
+    "keyword": "consume",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Item",
+        "required": true,
+        "default": null,
+        "explanation": "El ítem o poción que debe consumirse."
+      },
+      {
+        "name": "Amount",
+        "required": false,
+        "default": "1",
+        "explanation": "La cantidad de ítems a consumir."
+      }
+    ]
+  },
+  {
+    "name": "Craft",
+    "kind": "objective",
+    "syntax": "craft <item> [amount]",
+    "description": "El jugador debe craftear el ítem especificado.",
+    "example": "objectives:\n  craftSaddle: \"craft saddle 5 actions:reward\"",
+    "id": "craft",
+    "keyword": "craft",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Delay",
+    "kind": "objective",
+    "syntax": "delay <time> [unit] [precision]",
+    "description": "El jugador debe esperar la cantidad especificada de tiempo real.",
+    "example": "objectives:\n  waitDay: \"delay 1440 actions:resetDaily\" #(1)!\n  wait50sec: \"delay 1000 ticks interval:5 actions:failQuest\" #(2)!",
+    "id": "delay",
+    "keyword": "delay",
+    "args": [
+      {
+        "raw": "time",
+        "required": true
+      },
+      {
+        "raw": "unit",
+        "required": false
+      },
+      {
+        "raw": "precision",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "time",
+        "required": true,
+        "default": null,
+        "explanation": "El tiempo tras el cual se completa el objective."
+      },
+      {
+        "name": "unit",
+        "required": false,
+        "default": "minutes",
+        "explanation": "La unidad de tiempo. Puede ser `minutes`, `seconds` o `ticks`."
+      },
+      {
+        "name": "precision",
+        "required": false,
+        "default": "interval:200",
+        "explanation": "El intervalo en el que el objective verifica si el tiempo se cumplió. Medido en ticks. Valores bajos cuestan más rendimiento pero hacen el objective más preciso."
+      }
+    ]
+  },
+  {
+    "name": "Die",
+    "kind": "objective",
+    "syntax": "die [respawn] [cancel]",
+    "description": "El jugador debe morir.",
+    "example": "objectives:\n  respawn: \"die respawn:100;200;300;world;90;0 actions:respawned\"\n  preventDying: \"die cancel respawn:100;200;300;world;90;0 actions:respawned\"",
+    "id": "die",
+    "keyword": "die",
+    "args": [
+      {
+        "raw": "respawn",
+        "required": false
+      },
+      {
+        "raw": "cancel",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Enchant",
+    "kind": "objective",
+    "syntax": "enchant <item> <enchants> [requirementMode] [amount]",
+    "description": "El jugador debe encantar el ítem especificado con el encantamiento especificado.",
+    "example": "objectives:\n  lordSword: \"enchant lordsSword damage_all,knockback actions:rewardLord\"\n  kingSword: \"enchant kingsSword damage_all:2,knockback:1 actions:rewardKing\"\n  massProduction: \"enchant ironSword sharpness amount:10 actions:blacksmithLevel2Reward\"",
+    "id": "enchant",
+    "keyword": "enchant",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "enchants",
+        "required": true
+      },
+      {
+        "raw": "requirementMode",
+        "required": false
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "item",
+        "required": true,
+        "default": null,
+        "explanation": "El quest item que debe ser encantado."
+      },
+      {
+        "name": "enchants",
+        "required": true,
+        "default": null,
+        "explanation": "Los encantamientos que deben agregarse al ítem. Los [nombres de encantamiento](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html) son distintos de los del juego vanilla. Si se indica un nivel, el nivel encantado debe ser igual o mayor al especificado. Se admiten varios encantamientos: `ARROW_DAMAGE:1,ARROW_FIRE:1`"
+      },
+      {
+        "name": "requirementMode",
+        "required": false,
+        "default": "`all`",
+        "explanation": "Usá `one` si cualquier encantamiento de `enchants` debe completar el objective. Usá `all` si se requieren todos al mismo tiempo."
+      },
+      {
+        "name": "amount",
+        "required": false,
+        "default": "1",
+        "explanation": "La cantidad de ítems a encantar."
+      }
+    ]
+  },
+  {
+    "name": "Equip",
+    "kind": "objective",
+    "syntax": "equip <slot> <item>",
+    "description": "El jugador debe equipar el ítem especificado en el slot especificado.",
+    "example": "objectives:\n  eqHelm: \"equip HEAD amazing_helmet actions:action1,action2\"\n  equipBody: \"equip CHEST amazing_armor actions:action1,action2\"",
+    "id": "equip",
+    "keyword": "equip",
+    "args": [
+      {
+        "raw": "slot",
+        "required": true
+      },
+      {
+        "raw": "item",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Experience",
+    "kind": "objective",
+    "syntax": "experience <amount>",
+    "description": "El jugador debe alcanzar al menos la cantidad especificada de niveles de experiencia.",
+    "example": "objectives:\n  25Level: \"experience 25 actions:reward\"",
+    "id": "experience",
+    "keyword": "experience",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Fish",
+    "kind": "objective",
+    "syntax": "fish <item> <amount> [hookLocation] [range]",
+    "description": "El jugador debe pescar algo con la caña de pescar.",
+    "example": "objectives:\n  fisherman: \"fish SALMON 5 notify actions:tag_fish_caught\" #(1)!\n  fishAtPond: \"fish COD 5 hookLocation:123;456;789;fishWorld range:10 actions:giveSpecialFish\" #(2)!",
+    "id": "fish",
+    "keyword": "fish",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "hookLocation",
+        "required": false
+      },
+      {
+        "raw": "range",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Item",
+        "required": true,
+        "default": null,
+        "explanation": "El ítem que debe pescarse."
+      },
+      {
+        "name": "amount",
+        "required": true,
+        "default": null,
+        "explanation": "La cantidad que debe pescarse."
+      },
+      {
+        "name": "notifications",
+        "required": false,
+        "default": "notify:0",
+        "explanation": "Agregá `notify` para mostrar una notificación cuando se pesca algo. Opcionalmente con el intervalo de notificación después de los dos puntos."
+      },
+      {
+        "name": "hookLocation",
+        "required": false,
+        "default": "Everywhere",
+        "explanation": "La ubicación en la que debe pescarse el ítem. También debe definirse el range."
+      },
+      {
+        "name": "range",
+        "required": false,
+        "default": "Everywhere",
+        "explanation": "El rango alrededor de `hookLocation`."
+      }
+    ]
+  },
+  {
+    "name": "Interact",
+    "kind": "objective",
+    "syntax": "interact <type> <entity> <amount> [name] [realname] [marked] [hand] [cancel] [location] [range]",
+    "description": "El jugador debe interactuar con las entidades especificadas.",
+    "example": "objectives:\n  rightCreeper: \"interact right creeper 1 marked:sick conditions:syringeInHand cancel\"\n  anyAnyInteract: \"interact any any 1 cancel\"",
+    "id": "interact",
+    "keyword": "interact",
+    "args": [
+      {
+        "raw": "type",
+        "required": true
+      },
+      {
+        "raw": "entity",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "realname",
+        "required": false
+      },
+      {
+        "raw": "marked",
+        "required": false
+      },
+      {
+        "raw": "hand",
+        "required": false
+      },
+      {
+        "raw": "cancel",
+        "required": false
+      },
+      {
+        "raw": "location",
+        "required": false
+      },
+      {
+        "raw": "range",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Click Type",
+        "required": true,
+        "default": null,
+        "explanation": "Qué tipo de clic debe manejarse."
+      },
+      {
+        "name": "Entity Type",
+        "required": true,
+        "default": null,
+        "explanation": "La entidad que debe ser clicada."
+      },
+      {
+        "name": "amount",
+        "required": true,
+        "default": null,
+        "explanation": "La cantidad de entidades distintas con las que se debe interactuar."
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Solo cuenta a los mobs con nombre."
+      },
+      {
+        "name": "realname",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Para verificar el nombre real (por ejemplo, si renombraste jugadores para incluir su rango)."
+      },
+      {
+        "name": "marked",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si la entidad clicada debe estar marcada por la [spawn action](Actions-List.md#spawn) (ver su descripción para la explicación del marcado)."
+      },
+      {
+        "name": "hand",
+        "required": false,
+        "default": "`hand`",
+        "explanation": "La mano que el jugador debe usar para clicar el bloque. Con `any` el objective puede completarse varias veces."
+      },
+      {
+        "name": "Notifications",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Muestra mensajes al jugador cada vez que avanza en el objective. Opcionalmente con el intervalo de notificación después de los dos puntos."
+      },
+      {
+        "name": "Cancel",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Si el clic no debe hacer lo que normalmente haría (por ejemplo, el clic izquierdo no dañará a la entidad)."
+      },
+      {
+        "name": "Location",
+        "required": false,
+        "default": "Everywhere",
+        "explanation": "La ubicación en la que debe interactuarse con la entidad."
+      },
+      {
+        "name": "range",
+        "required": false,
+        "default": "1",
+        "explanation": "El rango alrededor de `loc`. Requiere que `loc` esté definido."
+      }
+    ]
+  },
+  {
+    "name": "Jump",
+    "kind": "objective",
+    "syntax": "jump <amount>",
+    "description": "El jugador debe saltar.",
+    "example": "objectives:\n  jump: \"jump 15 actions:legExerciseDone\"",
+    "id": "jump",
+    "keyword": "jump",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Kill",
+    "kind": "objective",
+    "syntax": "kill <amount> [name] [required]",
+    "description": "El jugador debe matar a otro jugador.",
+    "example": "objectives:\n  kill5: \"kill 5 required:team_B\"",
+    "id": "kill",
+    "keyword": "kill",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "required",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Location",
+    "kind": "objective",
+    "syntax": "location <location> [range] [entry] [exit]",
+    "description": "El jugador debe llegar a la ubicación especificada.",
+    "example": "objectives:\n  welcome: \"location 100;200;300;world 5 conditions:started actions:notifyWelcome,start\"\n  goodBy: \"location 100;200;300;world 5 exit conditions:started actions:notifyBye\"",
+    "id": "location",
+    "keyword": "location",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      },
+      {
+        "raw": "range",
+        "required": false
+      },
+      {
+        "raw": "entry",
+        "required": false
+      },
+      {
+        "raw": "exit",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "location",
+        "required": true,
+        "default": null,
+        "explanation": "La ubicación a la que ir."
+      },
+      {
+        "name": "range",
+        "required": true,
+        "default": null,
+        "explanation": "El rango alrededor de la ubicación donde debe estar el jugador."
+      },
+      {
+        "name": "entry",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "El jugador debe entrar (ir de afuera hacia adentro) a la ubicación para completar el objective."
+      },
+      {
+        "name": "exit",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "El jugador debe salir (ir de adentro hacia afuera) de la ubicación para completar el objective."
+      }
+    ]
+  },
+  {
+    "name": "Login",
+    "kind": "objective",
+    "syntax": "login",
+    "description": "El jugador debe iniciar sesión.",
+    "example": "objectives:\n  welcome: \"login actions:welcome_message\"",
+    "id": "login",
+    "keyword": "login",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "Logout",
+    "kind": "objective",
+    "syntax": "logout",
+    "description": "El jugador debe cerrar sesión.",
+    "example": "objectives:\n  clean: \"logout actions:delete_objective\"",
+    "id": "logout",
+    "keyword": "logout",
+    "args": [],
+    "params": []
+  },
+  {
+    "name": "MobKill",
+    "kind": "objective",
+    "syntax": "mobkill <type> <amount> [name] [marked]",
+    "description": "El jugador debe matar a las entidades vivas especificadas.",
+    "example": "objectives:\n  monsterHunter: \"mobkill ZOMBIE,SKELETON,SPIDER 10 notify\" #(1)!\n  specialMob: \"mobkill PIG 1 marked:special\" #(2)!\n  bossZombie: \"mobkill ZOMBIE 1 name:Uber_Zombie\" #(3)!",
+    "id": "mobkill",
+    "keyword": "mobkill",
+    "args": [
+      {
+        "raw": "type",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "marked",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "type",
+        "required": true,
+        "default": null,
+        "explanation": "Una lista de entidades, por ejemplo `ZOMBIE,SKELETON`."
+      },
+      {
+        "name": "amount",
+        "required": true,
+        "default": null,
+        "explanation": "Cantidad total de mobs a matar."
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Solo cuenta a los mobs con nombre."
+      },
+      {
+        "name": "marked",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Solo cuenta a los mobs marcados. Ver la [spawn action](Actions-List.md#spawn) para más información."
+      },
+      {
+        "name": "notify",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Muestra un mensaje al jugador cada vez que mata a un mob. Opcionalmente con el intervalo de notificación después de los dos puntos."
+      }
+    ]
+  },
+  {
+    "name": "NpcInteract",
+    "kind": "objective",
+    "syntax": "npcinteract <npc> [cancel] [interaction]",
+    "description": "El jugador debe interactuar con el NPC especificado.",
+    "example": "objectives:\n  stealItem: \"npcinteract mayor cancel conditions:sneak actions:steal\"\n  punchThief: \"npcinteract thief interaction:left actions:poke\"",
+    "id": "npcinteract",
+    "keyword": "npcinteract",
+    "args": [
+      {
+        "raw": "npc",
+        "required": true
+      },
+      {
+        "raw": "cancel",
+        "required": false
+      },
+      {
+        "raw": "interaction",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "Npc",
+        "required": true,
+        "default": null,
+        "explanation": "El ID del Npc."
+      },
+      {
+        "name": "Cancel",
+        "required": false,
+        "default": "False",
+        "explanation": "Si se debe cancelar la interacción con el Npc, de modo que no se inicie una conversation."
+      },
+      {
+        "name": "Interaction",
+        "required": false,
+        "default": "`right`",
+        "explanation": "El tipo de interacción. Puede ser `left`, `right` o `any`."
+      }
+    ]
+  },
+  {
+    "name": "NpcRange",
+    "kind": "objective",
+    "syntax": "npcrange <npc> <action> <range>",
+    "description": "El jugador debe entrar o salir del área especificada alrededor del NPC.",
+    "example": "objectives:\n  goToVillage: \"npcrange farmer,guard enter 20 actions:master_inRange\"",
+    "id": "npcrange",
+    "keyword": "npcrange",
+    "args": [
+      {
+        "raw": "npc",
+        "required": true
+      },
+      {
+        "raw": "action",
+        "required": true
+      },
+      {
+        "raw": "range",
+        "required": true
+      }
+    ],
+    "params": [
+      {
+        "name": "Npcs",
+        "required": true,
+        "default": null,
+        "explanation": "Los IDs de los Npcs."
+      },
+      {
+        "name": "Action",
+        "required": true,
+        "default": null,
+        "explanation": "La acción requerida. Puede ser `enter`, `leave`, `inside` o `outside`."
+      },
+      {
+        "name": "Range",
+        "required": true,
+        "default": null,
+        "explanation": "La distancia máxima a un Npc."
+      }
+    ]
+  },
+  {
+    "name": "Password",
+    "kind": "objective",
+    "syntax": "password <password> [prefix] [ignoreCase] [fail]",
+    "description": "El jugador debe escribir la contraseña especificada en el chat.",
+    "example": "objectives:\n  theBetonPassword: \"password beton ignoreCase prefix:secret fail:failAction1,failAction2 actions:message,reward\"\n  theBetonPasswordSpaced: 'password \"beton quest\" ignoreCase prefix:secret fail:failAction1,failAction2 actions:message,reward'",
+    "id": "password",
+    "keyword": "password",
+    "args": [
+      {
+        "raw": "password",
+        "required": true
+      },
+      {
+        "raw": "prefix",
+        "required": false
+      },
+      {
+        "raw": "ignoreCase",
+        "required": false
+      },
+      {
+        "raw": "fail",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Pickup",
+    "kind": "objective",
+    "syntax": "pickup <items> [amount]",
+    "description": "El jugador debe recoger los ítems especificados.",
+    "example": "objectives:\n  emeralds: \"pickup emerald amount:3 actions:reward notify\"\n  emeraldsAndDiamonds: \"pickup emerald,diamond amount:6 actions:reward notify\"",
+    "id": "pickup",
+    "keyword": "pickup",
+    "args": [
+      {
+        "raw": "items",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Point",
+    "kind": "objective",
+    "syntax": "point <category> <amount> [mode] [operation]",
+    "description": "El jugador debe tener la cantidad especificada de puntos en la categoría especificada.",
+    "example": "objectives:\n  reach100: \"point counter 100\"\n  punish: \"point reputation -100 operation:<\"\n  progressFive: \"point reputation 5 mode:relative\"",
+    "id": "point",
+    "keyword": "point",
+    "args": [
+      {
+        "raw": "category",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "mode",
+        "required": false
+      },
+      {
+        "raw": "operation",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "category",
+        "required": true,
+        "default": null,
+        "explanation": "La categoría en la que tener los puntos."
+      },
+      {
+        "name": "amount",
+        "required": true,
+        "default": null,
+        "explanation": "La cantidad de puntos requerida."
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "default": "ABSOLUTE",
+        "explanation": "Cómo debe interpretarse la cantidad. Puede ser `ABSOLUTE` o `RELATIVE`. Con relative, los puntos actuales se suman al valor objetivo."
+      },
+      {
+        "name": "operation",
+        "required": false,
+        "default": "Greater or Equals (>=)",
+        "explanation": "Cómo se compara el valor actual con el deseado. Las operaciones válidas son: `<`, `<=`, `=`, `!=`, `>=`, `>`."
+      }
+    ]
+  },
+  {
+    "name": "ResourcePack",
+    "kind": "objective",
+    "syntax": "resourcepack <state>",
+    "description": "El jugador debe tener el estado de resource pack especificado.",
+    "example": "objectives:\n  successful: \"resourcepack successfully_loaded actions:reward\"\n  declined: \"resourcepack declined actions:declined\"",
+    "id": "resourcepack",
+    "keyword": "resourcepack",
+    "args": [
+      {
+        "raw": "state",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Ride",
+    "kind": "objective",
+    "syntax": "ride <entity>",
+    "description": "El jugador debe montar la [entidad](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html) especificada.",
+    "example": "objectives:\n  horse: \"ride horse\"\n  any: \"ride any\"",
+    "id": "ride",
+    "keyword": "ride",
+    "args": [
+      {
+        "raw": "entity",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Shear",
+    "kind": "objective",
+    "syntax": "shear <amount> [name] [color]",
+    "description": "El jugador debe esquilar la cantidad especificada de ovejas.",
+    "example": "objectives:\n  bob: \"shear 1 name:Bob color:black\"\n  jeb: \"shear 1 name:jeb\"\n  jeb2: 'shear 1 \"name:jeb 2\"'",
+    "id": "shear",
+    "keyword": "shear",
+    "args": [
+      {
+        "raw": "amount",
+        "required": true
+      },
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "color",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Smelt",
+    "kind": "objective",
+    "syntax": "smelt <item> [amount]",
+    "description": "El jugador debe obtener el ítem especificado fundiéndolo (smelting).",
+    "example": "objectives:\n  smeltIron: \"smelt ironIngot 5 actions:reward\"",
+    "id": "smelt",
+    "keyword": "smelt",
+    "args": [
+      {
+        "raw": "item",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": false
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Stage",
+    "kind": "objective",
+    "syntax": "stage <stages> [preventCompletion]",
+    "description": "El jugador debe completar los stages especificados.",
+    "example": "objectives:\n  questProgress: \"stage part1,part2,part3\"\n  bakeCookies: \"stage collectIngredients,cookCookies,deliverCookies preventCompletion\"",
+    "id": "stage",
+    "keyword": "stage",
+    "args": [
+      {
+        "raw": "stages",
+        "required": true
+      },
+      {
+        "raw": "preventCompletion",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "stages",
+        "required": true,
+        "default": null,
+        "explanation": "Los stages que deben completarse."
+      },
+      {
+        "name": "preventCompletion",
+        "required": false,
+        "default": "Completion Enabled",
+        "explanation": "Evita que el objective se complete al avanzar de stage."
+      }
+    ]
+  },
+  {
+    "name": "Step",
+    "kind": "objective",
+    "syntax": "step <location>",
+    "description": "El jugador debe pisar una placa de presión en la ubicación especificada.",
+    "example": "objectives:\n  step: \"step 100;200;300;world actions:done\"",
+    "id": "step",
+    "keyword": "step",
+    "args": [
+      {
+        "raw": "location",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Tag",
+    "kind": "objective",
+    "syntax": "tag <tag>",
+    "description": "El jugador debe recibir el tag especificado.",
+    "example": "objectives:\n  finish: \"tag finishedTag\"",
+    "id": "tag",
+    "keyword": "tag",
+    "args": [
+      {
+        "raw": "tag",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Tame",
+    "kind": "objective",
+    "syntax": "tame <entity> <amount>",
+    "description": "El jugador debe domesticar los animales especificados.",
+    "example": "objectives:\n  wolf: \"tame WOLF 2 actions:wolfs_tamed\"",
+    "id": "tame",
+    "keyword": "tame",
+    "args": [
+      {
+        "raw": "entity",
+        "required": true
+      },
+      {
+        "raw": "amount",
+        "required": true
+      }
+    ],
+    "params": []
+  },
+  {
+    "name": "Timer",
+    "kind": "objective",
+    "syntax": "timer [name] [interval] [amount] [done]",
+    "description": "El jugador debe esperar la cantidad especificada de tiempo del juego.",
+    "example": "objectives:\n\ttrack: 'timer \"name:This is the Display Name\" interval:10 done:done_in actions:done conditions:in_region'",
+    "id": "timer",
+    "keyword": "timer",
+    "args": [
+      {
+        "raw": "name",
+        "required": false
+      },
+      {
+        "raw": "interval",
+        "required": false
+      },
+      {
+        "raw": "amount",
+        "required": false
+      },
+      {
+        "raw": "done",
+        "required": false
+      }
+    ],
+    "params": [
+      {
+        "name": "name",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Un nombre para mostrar del objective, accesible como propiedad."
+      },
+      {
+        "name": "interval",
+        "required": false,
+        "default": "interval:20",
+        "explanation": "Cada cuánto verifica el objective las conditions y suma tiempo, en segundos."
+      },
+      {
+        "name": "amount",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "La cantidad de tiempo en segundos a acumular antes de completar el objective."
+      },
+      {
+        "name": "done",
+        "required": false,
+        "default": "Disabled",
+        "explanation": "Actions que se ejecutan cuando el objective se completa, pero antes de que se elimine."
+      }
+    ]
+  },
+  {
+    "name": "Variable",
+    "kind": "objective",
+    "syntax": "variable [no-chat]",
+    "description": "Este objective no puede completarse.",
+    "example": "objectives:\n  storage: \"variable\"\n  storeChat: \"variable no-chat\"",
+    "id": "variable",
+    "keyword": "variable",
+    "args": [
+      {
+        "raw": "no-chat",
+        "required": false
+      }
+    ],
+    "params": []
+  }
+]
